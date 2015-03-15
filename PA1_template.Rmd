@@ -34,9 +34,9 @@ mean<-as.integer(summarize(steps2,mean(daily_step,na.rm=TRUE)))
 median<-as.integer(summarize(steps2,median(daily_step,na.rm=TRUE)))
 ```
 
-The mean and median steps were then calculated as 
-*`r mean`* and 
-*`r median`* 
+The mean and median steps were calculated as 
+**`r mean`** and 
+**`r median`** 
 respectively.  The code for mean and median cacluations are shown in figure 3.  A histogram of the total number of steps per day was plotted to examine the distribution
 of steps (figure 4).
 <br/>
@@ -75,7 +75,7 @@ max_si<-filter(steps3,interval_step==max(interval_step))
 ```
 
 Next, the average steps per interval was plotted on a time series graph (figure 6) which indicates that the 
-*`r format(max_si$interval,scientific=FALSE,nsmall=2)`* 
+**`r format(max_si$interval,scientific=FALSE,nsmall=2)`** 
 interval had the maximum average daily steps.
 
 ```{r fig.width=7, fig.height=6}
@@ -88,13 +88,13 @@ figure 6.
 <br/>
 <br/>
 <br/>
-### Inputing missing values
+### Imputing missing values
 ```{r,include=FALSE}
 miss_step<-filter(steps,is.na(steps))
 count_na_step<-nrow(miss_step)
 ```
 The original dataset, steps, contains missing steps for a number of observations.  Specifically,
-*`r count_na_step`*
+**`r count_na_step`**
 rows of step data was missing, calculated with the code in figure 7.
 ```{r,message=FALSE}
 miss_step<-filter(steps,is.na(steps))
@@ -135,8 +135,8 @@ median_step2<-as.integer(summarize(steps6,median(daily_step,na.rm=TRUE)))
 ```
 The non missing value dataset was grouped by date and the daily steps were summarized (figure 10).
 A histogram was constructed using the dataset with non missing summarized values, steps6 (figure 11).  The new mean and medain were 
-*`r mean_step2`* and
-*`r median_step2`* respectively.  The non missing value mean and median are 17 and 24 steps less than the original steps dataset mean and median.  The shift of the mean and median to the left for the non missing value dataset indicates that majority of the missing data occured for intervals with lower than the original mean of *10766* steps.
+**`r mean_step2`** and
+**`r median_step2`** respectively.  The non missing value mean and median are 17 and 24 steps less than the original steps dataset mean and median.  The shift of the mean and median to the left for the non missing value dataset indicates that majority of the missing data occured for intervals with lower than the original mean of 10766 steps.
 ```{r}
 steps6<-
     steps5%>%
@@ -150,7 +150,7 @@ figure 10.
 ```{r fig.width=7, fig.height=6}
 g<-ggplot(steps6,aes(x=daily_step))
 g+geom_histogram(aes(fill = ..count..),binwidth=3000)+labs(x="Steps",y="Count",
-                    title="Total steps per day\nNAs replaced")
+                    title="Total steps per day\nwith imputed data")
 ``` 
 
 figure 11.  

@@ -33,9 +33,9 @@ figure 2.
 
 
 
-The mean and median steps were then calculated as 
-*10766* and 
-*10765* 
+The mean and median steps were calculated as 
+**10766** and 
+**10765** 
 respectively.  The code for mean and median cacluations are shown in figure 3.  A histogram of the total number of steps per day was plotted to examine the distribution
 of steps (figure 4).
 <br/>
@@ -77,7 +77,7 @@ figure 5.
 
 
 Next, the average steps per interval was plotted on a time series graph (figure 6) which indicates that the 
-*835* 
+**835** 
 interval had the maximum average daily steps.
 
 
@@ -93,10 +93,10 @@ figure 6.
 <br/>
 <br/>
 <br/>
-### Inputing missing values
+### Imputing missing values
 
 The original dataset, steps, contains missing steps for a number of observations.  Specifically,
-*2304*
+**2304**
 rows of step data was missing, calculated with the code in figure 7.
 
 ```r
@@ -133,8 +133,8 @@ figure 9.
 
 The non missing value dataset was grouped by date and the daily steps were summarized (figure 10).
 A histogram was constructed using the dataset with non missing summarized values, steps6 (figure 11).  The new mean and medain were 
-*10749* and
-*10641* respectively.  The non missing value mean and median are 17 and 24 steps less than the original steps dataset mean and median.  The shift of the mean and median to the left for the non missing value dataset indicates that majority of the missing data occured for intervals with lower than the original mean of *10766* steps.
+**10749** and
+**10641** respectively.  The non missing value mean and median are 17 and 24 steps less than the original steps dataset mean and median.  The shift of the mean and median to the left for the non missing value dataset indicates that majority of the missing data occured for intervals with lower than the original mean of 10766 steps.
 
 ```r
 steps6<-
@@ -150,7 +150,7 @@ figure 10.
 ```r
 g<-ggplot(steps6,aes(x=daily_step))
 g+geom_histogram(aes(fill = ..count..),binwidth=3000)+labs(x="Steps",y="Count",
-                    title="Total steps per day\nNAs replaced")
+                    title="Total steps per day\nwith imputed data")
 ```
 
 ![plot of chunk unnamed-chunk-15](figure/unnamed-chunk-15-1.png) 
